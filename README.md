@@ -1,8 +1,8 @@
-\# CloudTask
+# CloudTask
 
 
 
-A full-stack task management application built with \*\*React, TypeScript, Node.js, Express, PostgreSQL, Docker, and AWS\*\*.
+A full-stack task management application built with **React, TypeScript, Node.js, Express, PostgreSQL, Docker, and AWS**.
 
 
 
@@ -10,19 +10,19 @@ CloudTask allows authenticated users to register, log in, manage their tasks, an
 
 
 
-The application is containerized and deployed on an \*\*AWS EC2 instance\*\*, with Docker images stored in \*\*Amazon ECR\*\*.
+The application is containerized and deployed on an **AWS EC2 instance**, with Docker images stored in **Amazon ECR**.
 
 
 
-\---
+---
 
 
 
-\## Live Application
+## Live Application
 
 
 
-\*\*CloudTask:\*\*  
+**CloudTask:**  
 
 http://3.110.37.65
 
@@ -32,97 +32,97 @@ http://3.110.37.65
 
 
 
-\---
+---
 
 
 
-\# Table of Contents
+# Table of Contents
 
 
 
-\- \[Features](#features)
+- [Features](#features)
 
-\- \[Technology Stack](#technology-stack)
+- [Technology Stack](#technology-stack)
 
-\- \[System Architecture](#system-architecture)
+- [System Architecture](#system-architecture)
 
-\- \[Application Architecture](#application-architecture)
+- [Application Architecture](#application-architecture)
 
-\- \[Frontend Architecture](#frontend-architecture)
+- [Frontend Architecture](#frontend-architecture)
 
-\- \[Backend Architecture](#backend-architecture)
+- [Backend Architecture](#backend-architecture)
 
-\- \[Database Architecture](#database-architecture)
+- [Database Architecture](#database-architecture)
 
-\- \[Authentication](#authentication)
+- [Authentication](#authentication)
 
-\- \[API](#api)
+- [API](#api)
 
-\- \[Health API](#health-api)
+- [Health API](#health-api)
 
-\- \[Database Migrations](#database-migrations)
+- [Database Migrations](#database-migrations)
 
-\- \[Docker Architecture](#docker-architecture)
+- [Docker Architecture](#docker-architecture)
 
-\- \[AWS Deployment Architecture](#aws-deployment-architecture)
+- [AWS Deployment Architecture](#aws-deployment-architecture)
 
-\- \[AWS Networking](#aws-networking)
+- [AWS Networking](#aws-networking)
 
-\- \[Amazon ECR](#amazon-ecr)
+- [Amazon ECR](#amazon-ecr)
 
-\- \[Local Development](#local-development)
+- [Local Development](#local-development)
 
-\- \[Running with Docker](#running-with-docker)
+- [Running with Docker](#running-with-docker)
 
-\- \[Production Deployment](#production-deployment)
+- [Production Deployment](#production-deployment)
 
-\- \[Environment Variables](#environment-variables)
+- [Environment Variables](#environment-variables)
 
-\- \[Testing](#testing)
+- [Testing](#testing)
 
-\- \[Project Structure](#project-structure)
+- [Project Structure](#project-structure)
 
-\- \[Security](#security)
+- [Security](#security)
 
-\- \[Deployment Flow](#deployment-flow)
+- [Deployment Flow](#deployment-flow)
 
-\- \[Future Improvements](#future-improvements)
+- [Future Improvements](#future-improvements)
 
-\- \[Author](#author)
-
-
-
-\---
+- [Author](#author)
 
 
 
-\# Features
+---
 
 
 
-\## Authentication
+# Features
 
 
 
-\- User registration
-
-\- User login
-
-\- User logout
-
-\- JWT-based authentication
-
-\- Protected routes
-
-\- Password hashing
-
-\- Authentication middleware
-
-\- User-specific task access
+## Authentication
 
 
 
-\## Task Management
+- User registration
+
+- User login
+
+- User logout
+
+- JWT-based authentication
+
+- Protected routes
+
+- Password hashing
+
+- Authentication middleware
+
+- User-specific task access
+
+
+
+## Task Management
 
 
 
@@ -130,95 +130,95 @@ Authenticated users can:
 
 
 
-\- Create tasks
+- Create tasks
 
-\- View tasks
+- View tasks
 
-\- Edit tasks
+- Edit tasks
 
-\- Delete tasks
+- Delete tasks
 
-\- Manage their own tasks
-
-
-
-\## Backend
+- Manage their own tasks
 
 
 
-\- RESTful API
-
-\- Express.js server
-
-\- TypeScript
-
-\- PostgreSQL integration
-
-\- Database connection pooling
-
-\- SQL migrations
-
-\- Authentication middleware
-
-\- Error handling middleware
-
-\- Health check endpoint
+## Backend
 
 
 
-\## Frontend
+- RESTful API
+
+- Express.js server
+
+- TypeScript
+
+- PostgreSQL integration
+
+- Database connection pooling
+
+- SQL migrations
+
+- Authentication middleware
+
+- Error handling middleware
+
+- Health check endpoint
 
 
 
-\- React
-
-\- TypeScript
-
-\- Vite
-
-\- Protected dashboard
-
-\- Login page
-
-\- Registration page
-
-\- Task management interface
-
-\- Reusable components
-
-\- Authentication context
-
-\- API client
+## Frontend
 
 
 
-\## Deployment
+- React
+
+- TypeScript
+
+- Vite
+
+- Protected dashboard
+
+- Login page
+
+- Registration page
+
+- Task management interface
+
+- Reusable components
+
+- Authentication context
+
+- API client
 
 
 
-\- Dockerized frontend
-
-\- Dockerized backend
-
-\- PostgreSQL container
-
-\- Amazon ECR
-
-\- Amazon EC2
-
-\- Nginx
-
-\- AWS Security Groups
-
-\- IAM-based AWS access
+## Deployment
 
 
 
-\---
+- Dockerized frontend
+
+- Dockerized backend
+
+- PostgreSQL container
+
+- Amazon ECR
+
+- Amazon EC2
+
+- Nginx
+
+- AWS Security Groups
+
+- IAM-based AWS access
 
 
 
-\# Technology Stack
+---
+
+
+
+# Technology Stack
 
 
 
@@ -260,11 +260,11 @@ Authenticated users can:
 
 
 
-\---
+---
 
 
 
-\# System Architecture
+# System Architecture
 
 
 
@@ -274,75 +274,75 @@ The complete production architecture is:
 
 ```text
 
-&#x20;                          INTERNET
+                           INTERNET
 
-&#x20;                             |
+                              |
 
-&#x20;                             |
+                              |
 
-&#x20;                             v
+                              v
 
-&#x20;                 +-----------------------+
+                  +-----------------------+
 
-&#x20;                 |       AWS EC2         |
+                  |       AWS EC2         |
 
-&#x20;                 |                       |
+                  |                       |
 
-&#x20;                 |   Security Group     |
+                  |   Security Group     |
 
-&#x20;                 |                       |
+                  |                       |
 
-&#x20;                 |   Port 80  -> HTTP    |
+                  |   Port 80  -> HTTP    |
 
-&#x20;                 |   Port 4000 -> API    |
+                  |   Port 4000 -> API    |
 
-&#x20;                 |   Port 22 -> SSH      |
+                  |   Port 22 -> SSH      |
 
-&#x20;                 |                       |
+                  |                       |
 
-&#x20;                 +-----------+-----------+
+                  +-----------+-----------+
 
-&#x20;                             |
+                              |
 
-&#x20;            +----------------+----------------+
+             +----------------+----------------+
 
-&#x20;            |                                 |
+             |                                 |
 
-&#x20;            v                                 v
+             v                                 v
 
-&#x20;  +-------------------+             +-------------------+
+   +-------------------+             +-------------------+
 
-&#x20;  | Frontend Container|             | Backend Container |
+   | Frontend Container|             | Backend Container |
 
-&#x20;  |                   |             |                   |
+   |                   |             |                   |
 
-&#x20;  | React Application  |             | Node.js +        |
+   | React Application  |             | Node.js +        |
 
-&#x20;  |        +           |             | Express + TS     |
+   |        +           |             | Express + TS     |
 
-&#x20;  |      Nginx         |             |                   |
+   |      Nginx         |             |                   |
 
-&#x20;  |                   |             | Port 4000        |
+   |                   |             | Port 4000        |
 
-&#x20;  | Port 80            |             +---------+---------+
+   | Port 80            |             +---------+---------+
 
-&#x20;  +-------------------+                       |
+   +-------------------+                       |
 
-&#x20;                                              |
+                                               |
 
-&#x20;                                              v
+                                               v
 
-&#x20;                                   +----------------------+
+                                    +----------------------+
 
-&#x20;                                   | PostgreSQL Container |
+                                    | PostgreSQL Container |
 
-&#x20;                                   |                      |
+                                    |                      |
 
-&#x20;                                   | PostgreSQL 17        |
+                                    | PostgreSQL 17        |
 
-&#x20;                                   | Port 5432            |
+                                    | Port 5432            |
 
-&#x20;                                   +----------------------+
+                                    +----------------------+
 
 ```
 
@@ -360,11 +360,11 @@ PostgreSQL is not directly exposed to the public internet.
 
 
 
-\---
+---
 
 
 
-\# Application Architecture
+# Application Architecture
 
 
 
@@ -374,43 +374,43 @@ CloudTask follows a layered application structure.
 
 ```text
 
-&#x20;                   React Frontend
+                    React Frontend
 
-&#x20;                         |
+                          |
 
-&#x20;                         | HTTP / REST API
+                          | HTTP / REST API
 
-&#x20;                         v
+                          v
 
-&#x20;                  Express Backend
+                   Express Backend
 
-&#x20;                         |
+                          |
 
-&#x20;            +------------+-------------+
+             +------------+-------------+
 
-&#x20;            |            |             |
+             |            |             |
 
-&#x20;            v            v             v
+             v            v             v
 
-&#x20;       Middleware    Controllers    Routes
+        Middleware    Controllers    Routes
 
-&#x20;                         |
+                          |
 
-&#x20;                         v
+                          v
 
-&#x20;                      Services
+                       Services
 
-&#x20;                         |
+                          |
 
-&#x20;                         v
+                          v
 
-&#x20;                    Repositories
+                     Repositories
 
-&#x20;                         |
+                          |
 
-&#x20;                         v
+                          v
 
-&#x20;                     PostgreSQL
+                      PostgreSQL
 
 ```
 
@@ -424,27 +424,27 @@ The main backend layers are:
 
 Routes
 
-&#x20; |
+  |
 
-&#x20; v
+  v
 
 Controllers
 
-&#x20; |
+  |
 
-&#x20; v
+  v
 
 Services
 
-&#x20; |
+  |
 
-&#x20; v
+  v
 
 Repositories
 
-&#x20; |
+  |
 
-&#x20; v
+  v
 
 Database
 
@@ -456,11 +456,11 @@ This separation keeps HTTP handling, business logic, and database operations org
 
 
 
-\---
+---
 
 
 
-\# Frontend Architecture
+# Frontend Architecture
 
 
 
@@ -472,25 +472,25 @@ The main responsibilities of the frontend are:
 
 
 
-\- Rendering the user interface
+- Rendering the user interface
 
-\- Managing authentication state
+- Managing authentication state
 
-\- Calling backend APIs
+- Calling backend APIs
 
-\- Displaying tasks
+- Displaying tasks
 
-\- Creating tasks
+- Creating tasks
 
-\- Editing tasks
+- Editing tasks
 
-\- Deleting tasks
+- Deleting tasks
 
-\- Protecting authenticated pages
+- Protecting authenticated pages
 
 
 
-\## Frontend Flow
+## Frontend Flow
 
 
 
@@ -498,33 +498,33 @@ The main responsibilities of the frontend are:
 
 User
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 React UI
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 API Client
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 REST API
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Node.js Backend
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 PostgreSQL
 
@@ -532,7 +532,7 @@ PostgreSQL
 
 
 
-\## Main Frontend Areas
+## Main Frontend Areas
 
 
 
@@ -556,7 +556,7 @@ src/
 
 
 
-\### Components
+### Components
 
 
 
@@ -564,21 +564,21 @@ Reusable UI components include:
 
 
 
-\- Navbar
+- Navbar
 
-\- TaskCard
+- TaskCard
 
-\- TaskForm
+- TaskForm
 
-\- Modal
+- Modal
 
-\- LoadingSpinner
+- LoadingSpinner
 
-\- ProtectedRoute
+- ProtectedRoute
 
 
 
-\### Pages
+### Pages
 
 
 
@@ -586,17 +586,17 @@ The application includes:
 
 
 
-\- Login page
+- Login page
 
-\- Registration page
+- Registration page
 
-\- Dashboard page
+- Dashboard page
 
-\- Not Found page
+- Not Found page
 
 
 
-\### Authentication Context
+### Authentication Context
 
 
 
@@ -604,7 +604,7 @@ The authentication context manages the frontend authentication state and provide
 
 
 
-\### Protected Routes
+### Protected Routes
 
 
 
@@ -612,11 +612,11 @@ The dashboard is protected so that unauthenticated users cannot access task mana
 
 
 
-\---
+---
 
 
 
-\# Backend Architecture
+# Backend Architecture
 
 
 
@@ -628,25 +628,25 @@ The backend is responsible for:
 
 
 
-\- Authentication
+- Authentication
 
-\- User management
+- User management
 
-\- Task management
+- Task management
 
-\- Database access
+- Database access
 
-\- JWT validation
+- JWT validation
 
-\- Request processing
+- Request processing
 
-\- Error handling
+- Error handling
 
-\- Health monitoring
+- Health monitoring
 
 
 
-\## Backend Structure
+## Backend Structure
 
 
 
@@ -672,9 +672,9 @@ cloudtask-backend/
 
 │   │   └── migrations/
 
-│   │       ├── 001\_create\_users.sql
+│   │       ├── 001_create_users.sql
 
-│   │       └── 002\_create\_tasks.sql
+│   │       └── 002_create_tasks.sql
 
 │   │
 
@@ -728,11 +728,11 @@ cloudtask-backend/
 
 
 
-\---
+---
 
 
 
-\# Backend Request Flow
+# Backend Request Flow
 
 
 
@@ -744,67 +744,67 @@ A typical authenticated task request follows this flow:
 
 Frontend
 
-&#x20;  |
+   |
 
-&#x20;  | HTTP Request + JWT
+   | HTTP Request + JWT
 
-&#x20;  v
+   v
 
 Express Router
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Authentication Middleware
 
-&#x20;  |
+   |
 
-&#x20;  | Token valid?
+   | Token valid?
 
-&#x20;  |
+   |
 
-&#x20;  +---- NO ----> Unauthorized Response
+   +---- NO ----> Unauthorized Response
 
-&#x20;  |
+   |
 
-&#x20;  +---- YES
+   +---- YES
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;     Controller
+      Controller
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;      Service
+       Service
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;    Repository
+     Repository
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;     PostgreSQL
+      PostgreSQL
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;      Response
+       Response
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;      Frontend
+       Frontend
 
 ```
 
@@ -814,15 +814,15 @@ This ensures protected resources are only accessible to authenticated users.
 
 
 
-\---
+---
 
 
 
-\# Database Architecture
+# Database Architecture
 
 
 
-CloudTask uses \*\*PostgreSQL 17\*\* as its relational database.
+CloudTask uses **PostgreSQL 17** as its relational database.
 
 
 
@@ -840,13 +840,13 @@ The database runs inside its own Docker container in production.
 
 +----------+-----------+
 
-&#x20;          |
+           |
 
-&#x20;          | PostgreSQL connection
+           | PostgreSQL connection
 
-&#x20;          |
+           |
 
-&#x20;          v
+           v
 
 +----------------------+
 
@@ -872,11 +872,11 @@ The database is not published directly to the public internet.
 
 
 
-\---
+---
 
 
 
-\# Database Schema
+# Database Schema
 
 
 
@@ -884,7 +884,7 @@ CloudTask currently uses tables for:
 
 
 
-\## Users
+## Users
 
 
 
@@ -900,7 +900,7 @@ Conceptually:
 
 users
 
-\--------------------------------
+--------------------------------
 
 id
 
@@ -908,13 +908,13 @@ email
 
 password
 
-created\_at
+created_at
 
 ```
 
 
 
-\## Tasks
+## Tasks
 
 
 
@@ -930,11 +930,11 @@ Conceptually:
 
 tasks
 
-\--------------------------------
+--------------------------------
 
 id
 
-user\_id
+user_id
 
 title
 
@@ -942,15 +942,15 @@ description
 
 completed
 
-created\_at
+created_at
 
-updated\_at
+updated_at
 
 ```
 
 
 
-The task record is associated with its owning user through `user\_id`.
+The task record is associated with its owning user through `user_id`.
 
 
 
@@ -958,11 +958,11 @@ This allows the application to enforce user-specific task access.
 
 
 
-\---
+---
 
 
 
-\# Database Migrations
+# Database Migrations
 
 
 
@@ -988,9 +988,9 @@ Current migrations:
 
 ```text
 
-001\_create\_users.sql
+001_create_users.sql
 
-002\_create\_tasks.sql
+002_create_tasks.sql
 
 ```
 
@@ -1008,7 +1008,7 @@ cloudtask-backend/src/db/migrate.ts
 
 
 
-\## Migration Process
+## Migration Process
 
 
 
@@ -1020,39 +1020,39 @@ When migrations run:
 
 Migration Runner
 
-&#x20;      |
+       |
 
-&#x20;      v
+       v
 
 Create migrations table
 
-&#x20;      |
+       |
 
-&#x20;      v
+       v
 
 Read migration files
 
-&#x20;      |
+       |
 
-&#x20;      v
+       v
 
 Sort migration filenames
 
-&#x20;      |
+       |
 
-&#x20;      v
+       v
 
 Check already-applied migrations
 
-&#x20;      |
+       |
 
-&#x20;      v
+       v
 
 Run pending migration
 
-&#x20;      |
+       |
 
-&#x20;      v
+       v
 
 Record migration
 
@@ -1072,19 +1072,19 @@ Each migration is executed inside a database transaction.
 
 BEGIN
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Execute SQL
 
-&#x20;  |
+   |
 
-&#x20;  +---- Success ----> Record migration -> COMMIT
+   +---- Success ----> Record migration -> COMMIT
 
-&#x20;  |
+   |
 
-&#x20;  +---- Failure ----> ROLLBACK
+   +---- Failure ----> ROLLBACK
 
 ```
 
@@ -1094,15 +1094,15 @@ This prevents a failed migration from being partially applied.
 
 
 
-\---
+---
 
 
 
-\# Authentication
+# Authentication
 
 
 
-CloudTask uses \*\*JWT-based authentication\*\*.
+CloudTask uses **JWT-based authentication**.
 
 
 
@@ -1110,27 +1110,27 @@ The authentication system consists of:
 
 
 
-\- Registration
+- Registration
 
-\- Login
+- Login
 
-\- Password hashing
+- Password hashing
 
-\- JWT generation
+- JWT generation
 
-\- JWT verification
+- JWT verification
 
-\- Authentication middleware
+- Authentication middleware
 
-\- Protected task routes
-
-
-
-\---
+- Protected task routes
 
 
 
-\# Registration Flow
+---
+
+
+
+# Registration Flow
 
 
 
@@ -1138,43 +1138,43 @@ The authentication system consists of:
 
 User
 
-&#x20;|
+ |
 
-&#x20;| Email + Password
+ | Email + Password
 
-&#x20;v
+ v
 
 POST /api/auth/register
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Auth Controller
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Auth Service
 
-&#x20;|
+ |
 
-&#x20;| Hash password
+ | Hash password
 
-&#x20;v
+ v
 
 Auth Repository
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 PostgreSQL
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 User created
 
@@ -1190,11 +1190,11 @@ A password hash is stored in the database instead.
 
 
 
-\---
+---
 
 
 
-\# Login Flow
+# Login Flow
 
 
 
@@ -1202,51 +1202,51 @@ A password hash is stored in the database instead.
 
 User
 
-&#x20;|
+ |
 
-&#x20;| Email + Password
+ | Email + Password
 
-&#x20;v
+ v
 
 POST /api/auth/login
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Auth Controller
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Auth Service
 
-&#x20;|
+ |
 
-&#x20;| Find user
+ | Find user
 
-&#x20;v
+ v
 
 PostgreSQL
 
-&#x20;|
+ |
 
-&#x20;| Verify password
+ | Verify password
 
-&#x20;v
+ v
 
 Generate JWT
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Return authentication response
 
-&#x20;|
+ |
 
-&#x20;v
+ v
 
 Frontend
 
@@ -1254,11 +1254,11 @@ Frontend
 
 
 
-\---
+---
 
 
 
-\# Authenticated Request
+# Authenticated Request
 
 
 
@@ -1270,65 +1270,65 @@ After login, authenticated API requests include the JWT.
 
 Frontend
 
-&#x20;  |
+   |
 
-&#x20;  | Authorization: Bearer <JWT>
+   | Authorization: Bearer <JWT>
 
-&#x20;  v
+   v
 
 Express API
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Auth Middleware
 
-&#x20;  |
+   |
 
-&#x20;  | Verify JWT
+   | Verify JWT
 
-&#x20;  |
+   |
 
-&#x20;  +---- Invalid ----> 401 Unauthorized
+   +---- Invalid ----> 401 Unauthorized
 
-&#x20;  |
+   |
 
-&#x20;  +---- Valid
+   +---- Valid
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;      Controller
+       Controller
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;      Service
+       Service
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;     Repository
+      Repository
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;     PostgreSQL
+      PostgreSQL
 
 ```
 
 
 
-\---
+---
 
 
 
-\# API
+# API
 
 
 
@@ -1352,15 +1352,15 @@ The frontend accesses the backend API from the deployed application.
 
 
 
-\---
+---
 
 
 
-\# Authentication API
+# Authentication API
 
 
 
-\## Register
+## Register
 
 
 
@@ -1376,11 +1376,11 @@ Used to create a new user account.
 
 
 
-\---
+---
 
 
 
-\## Login
+## Login
 
 
 
@@ -1396,11 +1396,11 @@ Used to authenticate an existing user.
 
 
 
-\---
+---
 
 
 
-\# Task API
+# Task API
 
 
 
@@ -1408,7 +1408,7 @@ Task endpoints are protected by JWT authentication.
 
 
 
-\## Get Tasks
+## Get Tasks
 
 
 
@@ -1424,11 +1424,11 @@ Returns the authenticated user's tasks.
 
 
 
-\---
+---
 
 
 
-\## Create Task
+## Create Task
 
 
 
@@ -1444,11 +1444,11 @@ Creates a new task for the authenticated user.
 
 
 
-\---
+---
 
 
 
-\## Update Task
+## Update Task
 
 
 
@@ -1464,11 +1464,11 @@ Updates an existing task.
 
 
 
-\---
+---
 
 
 
-\## Delete Task
+## Delete Task
 
 
 
@@ -1484,11 +1484,11 @@ Deletes an existing task.
 
 
 
-\---
+---
 
 
 
-\# Health API
+# Health API
 
 
 
@@ -1524,9 +1524,9 @@ Expected response:
 
 {
 
-&#x20; "success": true,
+  "success": true,
 
-&#x20; "message": "CloudTask API is running"
+  "message": "CloudTask API is running"
 
 }
 
@@ -1554,9 +1554,9 @@ Expected result:
 
 {
 
-&#x20; "success": true,
+  "success": true,
 
-&#x20; "message": "CloudTask API is running"
+  "message": "CloudTask API is running"
 
 }
 
@@ -1564,11 +1564,11 @@ Expected result:
 
 
 
-\---
+---
 
 
 
-\# Docker Architecture
+# Docker Architecture
 
 
 
@@ -1592,9 +1592,9 @@ Docker Network: cloudtask-network
 
 +-----------+-----------+
 
-&#x20;           |
+            |
 
-&#x20;           |
+            |
 
 +-----------v-----------+
 
@@ -1606,9 +1606,9 @@ Docker Network: cloudtask-network
 
 +-----------+-----------+
 
-&#x20;           |
+            |
 
-&#x20;           |
+            |
 
 +-----------v-----------+
 
@@ -1644,11 +1644,11 @@ This allows containers to communicate internally through the Docker network.
 
 
 
-\---
+---
 
 
 
-\# Docker Images
+# Docker Images
 
 
 
@@ -1672,11 +1672,11 @@ Application images are stored in Amazon ECR.
 
 
 
-\---
+---
 
 
 
-\# AWS Deployment Architecture
+# AWS Deployment Architecture
 
 
 
@@ -1692,33 +1692,33 @@ The deployment uses:
 
 Local Machine
 
-&#x20;     |
+      |
 
-&#x20;     | Docker Build
+      | Docker Build
 
-&#x20;     v
+      v
 
 Docker Images
 
-&#x20;     |
+      |
 
-&#x20;     | docker push
+      | docker push
 
-&#x20;     v
+      v
 
 Amazon ECR
 
-&#x20;     |
+      |
 
-&#x20;     | docker pull
+      | docker pull
 
-&#x20;     v
+      v
 
 AWS EC2
 
-&#x20;     |
+      |
 
-&#x20;     v
+      v
 
 Docker Containers
 
@@ -1726,11 +1726,11 @@ Docker Containers
 
 
 
-\---
+---
 
 
 
-\# Amazon ECR
+# Amazon ECR
 
 
 
@@ -1780,11 +1780,11 @@ The EC2 instance authenticates with ECR and pulls the required images.
 
 
 
-\---
+---
 
 
 
-\# EC2 Deployment
+# EC2 Deployment
 
 
 
@@ -1828,29 +1828,29 @@ Example deployment:
 
 cloudtask-frontend
 
-&#x20;   0.0.0.0:80->80/tcp
+    0.0.0.0:80->80/tcp
 
 
 
 cloudtask-backend
 
-&#x20;   0.0.0.0:4000->4000/tcp
+    0.0.0.0:4000->4000/tcp
 
 
 
 cloudtask-db
 
-&#x20;   5432/tcp
+    5432/tcp
 
 ```
 
 
 
-\---
+---
 
 
 
-\# Nginx
+# Nginx
 
 
 
@@ -1866,17 +1866,17 @@ Nginx serves the built React application.
 
 Browser
 
-&#x20;  |
+   |
 
-&#x20;  | HTTP :80
+   | HTTP :80
 
-&#x20;  v
+   v
 
 Nginx
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 React Static Files
 
@@ -1888,11 +1888,11 @@ The backend runs separately on port `4000`.
 
 
 
-\---
+---
 
 
 
-\# AWS Networking
+# AWS Networking
 
 
 
@@ -1952,11 +1952,11 @@ PostgreSQL is not exposed publicly and is accessible through the Docker network.
 
 
 
-\---
+---
 
 
 
-\# AWS IAM
+# AWS IAM
 
 
 
@@ -1976,15 +1976,15 @@ AWS credentials are not committed to this repository.
 
 
 
-\---
+---
 
 
 
-\# Local Development
+# Local Development
 
 
 
-\## Prerequisites
+## Prerequisites
 
 
 
@@ -1992,21 +1992,21 @@ Install:
 
 
 
-\- Node.js
+- Node.js
 
-\- npm
+- npm
 
-\- PostgreSQL
+- PostgreSQL
 
-\- Docker
-
-
-
-\---
+- Docker
 
 
 
-\# Backend Local Setup
+---
+
+
+
+# Backend Local Setup
 
 
 
@@ -2054,11 +2054,11 @@ Example configuration:
 
 PORT=4000
 
-DATABASE\_URL=postgresql://postgres:postgres@localhost:5432/cloudtask
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cloudtask
 
-JWT\_SECRET=your-secret
+JWT_SECRET=your-secret
 
-JWT\_EXPIRES\_IN=1h
+JWT_EXPIRES_IN=1h
 
 ```
 
@@ -2080,11 +2080,11 @@ Run the configured backend development/production script from `package.json`.
 
 
 
-\---
+---
 
 
 
-\# Frontend Local Setup
+# Frontend Local Setup
 
 
 
@@ -2128,15 +2128,15 @@ Then run the configured Vite development script.
 
 
 
-\---
+---
 
 
 
-\# Running with Docker
+# Running with Docker
 
 
 
-\## Backend
+## Backend
 
 
 
@@ -2164,11 +2164,11 @@ docker build -t cloudtask-backend:latest .
 
 
 
-\---
+---
 
 
 
-\## Frontend
+## Frontend
 
 
 
@@ -2196,11 +2196,11 @@ docker build -t cloudtask-frontend:latest .
 
 
 
-\---
+---
 
 
 
-\# Docker Network
+# Docker Network
 
 
 
@@ -2222,17 +2222,17 @@ Run PostgreSQL:
 
 ```bash
 
-docker run -d \\
+docker run -d \
 
-&#x20; --name cloudtask-db \\
+  --name cloudtask-db \
 
-&#x20; --network cloudtask-network \\
+  --network cloudtask-network \
 
-&#x20; -e POSTGRES\_PASSWORD=postgres \\
+  -e POSTGRES_PASSWORD=postgres \
 
-&#x20; -e POSTGRES\_DB=cloudtask \\
+  -e POSTGRES_DB=cloudtask \
 
-&#x20; postgres:17
+  postgres:17
 
 ```
 
@@ -2254,11 +2254,11 @@ rather than using localhost.
 
 
 
-\---
+---
 
 
 
-\# Environment Variables
+# Environment Variables
 
 
 
@@ -2270,11 +2270,11 @@ Backend environment variables:
 
 PORT=4000
 
-DATABASE\_URL=postgresql://postgres:postgres@localhost:5432/cloudtask
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cloudtask
 
-JWT\_SECRET=replace-this-with-a-long-random-string
+JWT_SECRET=replace-this-with-a-long-random-string
 
-JWT\_EXPIRES\_IN=1h
+JWT_EXPIRES_IN=1h
 
 ```
 
@@ -2288,11 +2288,11 @@ Sensitive `.env` files are intentionally excluded from Git.
 
 
 
-\---
+---
 
 
 
-\# Testing
+# Testing
 
 
 
@@ -2300,39 +2300,39 @@ The deployed application was manually tested after deployment.
 
 
 
-\## Authentication Tests
+## Authentication Tests
 
 
 
-\- Register new user
+- Register new user
 
-\- Login
+- Login
 
-\- Logout
+- Logout
 
-\- Login again
+- Login again
 
-\- Access protected dashboard
-
-
-
-\## Task Tests
+- Access protected dashboard
 
 
 
-\- Create task
-
-\- View task
-
-\- Edit task
-
-\- Delete task
-
-\- Refresh dashboard and verify persistence
+## Task Tests
 
 
 
-\## API Tests
+- Create task
+
+- View task
+
+- Edit task
+
+- Delete task
+
+- Refresh dashboard and verify persistence
+
+
+
+## API Tests
 
 
 
@@ -2356,9 +2356,9 @@ Expected:
 
 {
 
-&#x20; "success": true,
+  "success": true,
 
-&#x20; "message": "CloudTask API is running"
+  "message": "CloudTask API is running"
 
 }
 
@@ -2366,7 +2366,7 @@ Expected:
 
 
 
-\## Container Tests
+## Container Tests
 
 
 
@@ -2426,11 +2426,11 @@ start worker processes
 
 
 
-\---
+---
 
 
 
-\# Production Verification
+# Production Verification
 
 
 
@@ -2488,11 +2488,11 @@ The following production checks were performed:
 
 
 
-\---
+---
 
 
 
-\# Project Structure
+# Project Structure
 
 
 
@@ -2522,9 +2522,9 @@ CloudTask/
 
 │   │   │   └── migrations/
 
-│   │   │       ├── 001\_create\_users.sql
+│   │   │       ├── 001_create_users.sql
 
-│   │   │       └── 002\_create\_tasks.sql
+│   │   │       └── 002_create_tasks.sql
 
 │   │   │
 
@@ -2622,11 +2622,11 @@ CloudTask/
 
 
 
-\---
+---
 
 
 
-\# Security
+# Security
 
 
 
@@ -2634,7 +2634,7 @@ The project follows several basic security practices.
 
 
 
-\## Secrets
+## Secrets
 
 
 
@@ -2646,9 +2646,9 @@ Sensitive files are excluded from version control:
 
 .env
 
-\*.pem
+*.pem
 
-\*.csv
+*.csv
 
 ```
 
@@ -2658,7 +2658,7 @@ AWS credentials and private keys are never stored in the repository.
 
 
 
-\## Authentication
+## Authentication
 
 
 
@@ -2666,7 +2666,7 @@ Protected endpoints require JWT authentication.
 
 
 
-\## Passwords
+## Passwords
 
 
 
@@ -2674,7 +2674,7 @@ Passwords are stored using password hashing rather than plain text.
 
 
 
-\## Database
+## Database
 
 
 
@@ -2682,7 +2682,7 @@ PostgreSQL is kept inside the private Docker network and is not directly exposed
 
 
 
-\## AWS Security Group
+## AWS Security Group
 
 
 
@@ -2694,11 +2694,11 @@ HTTP traffic is publicly accessible for the web application.
 
 
 
-\---
+---
 
 
 
-\# Deployment Flow
+# Deployment Flow
 
 
 
@@ -2708,85 +2708,85 @@ The complete deployment process is:
 
 ```text
 
-&#x20;                   DEVELOPMENT
+                    DEVELOPMENT
 
-&#x20;                        |
+                         |
 
-&#x20;                        v
+                         v
 
-&#x20;               React + Node.js
+                React + Node.js
 
-&#x20;                        |
+                         |
 
-&#x20;                        v
+                         v
 
-&#x20;                 Docker Build
+                  Docker Build
 
-&#x20;                   /       \\
+                    /       \
 
-&#x20;                  /         \\
+                   /         \
 
-&#x20;                 v           v
+                  v           v
 
-&#x20;            Frontend      Backend
+             Frontend      Backend
 
-&#x20;               Image        Image
+                Image        Image
 
-&#x20;                  \\         /
+                   \\         /
 
-&#x20;                   \\       /
+                    \\       /
 
-&#x20;                    v     v
+                     v     v
 
-&#x20;                  Amazon ECR
+                   Amazon ECR
 
-&#x20;                      |
+                       |
 
-&#x20;                      |
+                       |
 
-&#x20;                      v
+                       v
 
-&#x20;                   AWS EC2
+                    AWS EC2
 
-&#x20;                      |
+                       |
 
-&#x20;                      v
+                       v
 
-&#x20;               Docker Pull
+                Docker Pull
 
-&#x20;                      |
+                       |
 
-&#x20;         +------------+-------------+
+          +------------+-------------+
 
-&#x20;         |            |             |
+          |            |             |
 
-&#x20;         v            v             v
+          v            v             v
 
-&#x20;     Frontend      Backend      PostgreSQL
+      Frontend      Backend      PostgreSQL
 
-&#x20;      Nginx        Node.js       Database
+       Nginx        Node.js       Database
 
-&#x20;         |            |
+          |            |
 
-&#x20;         |            |
+          |            |
 
-&#x20;         +------------+
+          +------------+
 
-&#x20;               |
+                |
 
-&#x20;               v
+                v
 
-&#x20;            Internet
+             Internet
 
 ```
 
 
 
-\---
+---
 
 
 
-\# Application Request Flow
+# Application Request Flow
 
 
 
@@ -2798,61 +2798,61 @@ A typical user interaction follows:
 
 Browser
 
-&#x20;  |
+   |
 
-&#x20;  | HTTP
+   | HTTP
 
-&#x20;  v
+   v
 
 Nginx / React
 
-&#x20;  |
+   |
 
-&#x20;  | REST API request
+   | REST API request
 
-&#x20;  v
+   v
 
 Node.js / Express
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 JWT Middleware
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Controller
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Service
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Repository
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 PostgreSQL
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Response
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 React UI
 
@@ -2860,11 +2860,11 @@ React UI
 
 
 
-\---
+---
 
 
 
-\# Error Handling
+# Error Handling
 
 
 
@@ -2880,39 +2880,39 @@ The general flow is:
 
 Request
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Route
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Controller
 
-&#x20;  |
+   |
 
-&#x20;  v
+   v
 
 Service
 
-&#x20;  |
+   |
 
-&#x20;  +---- Error
+   +---- Error
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;   Error Middleware
+    Error Middleware
 
-&#x20;         |
+          |
 
-&#x20;         v
+          v
 
-&#x20;   HTTP Error Response
+    HTTP Error Response
 
 ```
 
@@ -2922,15 +2922,15 @@ This prevents application errors from being handled inconsistently across indivi
 
 
 
-\---
+---
 
 
 
-\# Design Decisions
+# Design Decisions
 
 
 
-\## Separate Frontend and Backend
+## Separate Frontend and Backend
 
 
 
@@ -2942,17 +2942,17 @@ Benefits:
 
 
 
-\- Independent deployment
+- Independent deployment
 
-\- Clear separation of responsibilities
+- Clear separation of responsibilities
 
-\- Easier containerization
+- Easier containerization
 
-\- Independent scaling possibilities
+- Independent scaling possibilities
 
 
 
-\## Layered Backend
+## Layered Backend
 
 
 
@@ -2978,7 +2978,7 @@ This keeps API handling separate from business logic and database operations.
 
 
 
-\## PostgreSQL
+## PostgreSQL
 
 
 
@@ -2986,7 +2986,7 @@ A relational database was selected because tasks belong to users and require str
 
 
 
-\## Docker
+## Docker
 
 
 
@@ -2994,7 +2994,7 @@ Docker provides consistent environments between development and deployment.
 
 
 
-\## Amazon ECR
+## Amazon ECR
 
 
 
@@ -3002,7 +3002,7 @@ ECR provides private storage for production Docker images.
 
 
 
-\## Amazon EC2
+## Amazon EC2
 
 
 
@@ -3010,11 +3010,11 @@ EC2 provides a straightforward environment for running the containerized applica
 
 
 
-\---
+---
 
 
 
-\# Future Improvements
+# Future Improvements
 
 
 
@@ -3022,41 +3022,41 @@ Possible production improvements include:
 
 
 
-\- HTTPS using a domain name and TLS certificate
+- HTTPS using a domain name and TLS certificate
 
-\- AWS Application Load Balancer
+- AWS Application Load Balancer
 
-\- Automated CI/CD with GitHub Actions
+- Automated CI/CD with GitHub Actions
 
-\- Automated database backups
+- Automated database backups
 
-\- Centralized application logging
+- Centralized application logging
 
-\- CloudWatch monitoring
+- CloudWatch monitoring
 
-\- Health checks and automated container restart policies
+- Health checks and automated container restart policies
 
-\- Rate limiting
+- Rate limiting
 
-\- Refresh tokens
+- Refresh tokens
 
-\- Pagination for task lists
+- Pagination for task lists
 
-\- Task filtering and search
+- Task filtering and search
 
-\- Task due dates and priorities
+- Task due dates and priorities
 
-\- Automated unit and integration testing
+- Automated unit and integration testing
 
-\- Infrastructure as Code using Terraform or AWS CDK
-
-
-
-\---
+- Infrastructure as Code using Terraform or AWS CDK
 
 
 
-\# Repository
+---
+
+
+
+# Repository
 
 
 
@@ -3068,15 +3068,15 @@ https://github.com/Aditya0254-singh/CloudTask
 
 
 
-\---
+---
 
 
 
-\# Author
+# Author
 
 
 
-\*\*Aditya Singh\*\*
+**Aditya Singh**
 
 
 
@@ -3084,29 +3084,29 @@ CloudTask was built as a full-stack project demonstrating:
 
 
 
-\- React development
+- React development
 
-\- TypeScript
+- TypeScript
 
-\- REST API development
+- REST API development
 
-\- Node.js and Express
+- Node.js and Express
 
-\- PostgreSQL
+- PostgreSQL
 
-\- JWT authentication
+- JWT authentication
 
-\- Docker containerization
+- Docker containerization
 
-\- Nginx
+- Nginx
 
-\- Amazon ECR
+- Amazon ECR
 
-\- Amazon EC2
+- Amazon EC2
 
-\- AWS IAM
+- AWS IAM
 
-\- AWS Security Groups
+- AWS Security Groups
 
-\- Production deployment
+- Production deployment
 
