@@ -1,3112 +1,1135 @@
-# CloudTask
+<h1 align="center">☁️ CloudTask</h1>
+
+<p align="center">
+  A production-style full-stack task management application built with
+  <strong>React, TypeScript, Node.js, Express, PostgreSQL, Docker, and AWS.</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white">
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Node.js-22-339933?style=for-the-badge&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/PostgreSQL-17-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
+  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white">
+  <img src="https://img.shields.io/badge/AWS-EC2%20%2B%20ECR-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white">
+</p>
+
+<p align="center">
+  <a href="http://3.110.37.65">
+    <img src="https://img.shields.io/badge/🚀%20LIVE%20DEMO-CloudTask-2ea44f?style=for-the-badge" alt="Live Demo">
+  </a>
+  <a href="https://github.com/Aditya0254-singh/CloudTask">
+    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Repository">
+  </a>
+</p>
+
+---
+
+CloudTask allows authenticated users to securely register and log in, create and manage personal tasks, and perform complete CRUD operations through a protected REST API.
+
+The application is containerized with Docker and deployed on an AWS EC2 instance using Docker images stored in Amazon ECR.
 
 
+---
 
-A full-stack task management application built with **React, TypeScript, Node.js, Express, PostgreSQL, Docker, and AWS**.
+## 🚀 Live Application
 
+<p align="center">
+  <a href="http://3.110.37.65">
+    <img src="https://img.shields.io/badge/🚀%20OPEN%20CLOUDTASK-Live%20Application-2ea44f?style=for-the-badge" alt="Open CloudTask">
+  </a>
+</p>
 
+<p align="center">
+  🌐 <strong>CloudTask is currently running on AWS EC2</strong>
+</p>
 
-CloudTask allows authenticated users to register, log in, manage their tasks, and perform complete task CRUD operations through a protected REST API.
-
-
-
-The application is containerized and deployed on an **AWS EC2 instance**, with Docker images stored in **Amazon ECR**.
+> 💡 The EC2 public IP may change if the instance is stopped and started.
 
 
 
 ---
 
+## ✨ Features
 
-
-## Live Application
-
-
-
-**CloudTask:**  
-
-http://3.110.37.65
-
-
-
-> The application is currently deployed on an AWS EC2 instance. The public IP can change if the EC2 instance is stopped and started.
-
-
-
----
-
-
-
-# Table of Contents
-
-
-
-- [Features](#features)
-
-- [Technology Stack](#technology-stack)
-
-- [System Architecture](#system-architecture)
-
-- [Application Architecture](#application-architecture)
-
-- [Frontend Architecture](#frontend-architecture)
-
-- [Backend Architecture](#backend-architecture)
-
-- [Database Architecture](#database-architecture)
-
-- [Authentication](#authentication)
-
-- [API](#api)
-
-- [Health API](#health-api)
-
-- [Database Migrations](#database-migrations)
-
-- [Docker Architecture](#docker-architecture)
-
-- [AWS Deployment Architecture](#aws-deployment-architecture)
-
-- [AWS Networking](#aws-networking)
-
-- [Amazon ECR](#amazon-ecr)
-
-- [Local Development](#local-development)
-
-- [Running with Docker](#running-with-docker)
-
-- [Production Deployment](#production-deployment)
-
-- [Environment Variables](#environment-variables)
-
-- [Testing](#testing)
-
-- [Project Structure](#project-structure)
-
-- [Security](#security)
-
-- [Deployment Flow](#deployment-flow)
-
-- [Future Improvements](#future-improvements)
-
-- [Author](#author)
-
-
-
----
-
-
-
-# Features
-
-
-
-## Authentication
-
-
+### Authentication
 
 - User registration
-
 - User login
-
-- User logout
-
 - JWT-based authentication
-
-- Protected routes
-
 - Password hashing
+- Protected API routes
+- Protected frontend routes
+- Logout functionality
+- Persistent authentication state
 
-- Authentication middleware
-
-- User-specific task access
-
-
-
-## Task Management
-
-
+### Task Management
 
 Authenticated users can:
 
-
-
 - Create tasks
-
 - View tasks
-
 - Edit tasks
-
 - Delete tasks
+- Manage only their own tasks
+- Refresh the dashboard and retain persisted data
 
-- Manage their own tasks
-
-
-
-## Backend
-
-
+### Backend
 
 - RESTful API
-
-- Express.js server
-
+- Express.js
 - TypeScript
-
-- PostgreSQL integration
-
-- Database connection pooling
-
-- SQL migrations
-
-- Authentication middleware
-
-- Error handling middleware
-
+- PostgreSQL
+- JWT authentication
+- Centralized error handling
+- Environment-based configuration
+- Database migrations
 - Health check endpoint
 
-
-
-## Frontend
-
-
+### Frontend
 
 - React
-
 - TypeScript
-
 - Vite
-
-- Protected dashboard
-
-- Login page
-
-- Registration page
-
-- Task management interface
-
-- Reusable components
-
+- Protected routes
 - Authentication context
-
-- API client
-
-
-
-## Deployment
-
-
-
-- Dockerized frontend
-
-- Dockerized backend
-
-- PostgreSQL container
-
-- Amazon ECR
-
-- Amazon EC2
-
-- Nginx
-
-- AWS Security Groups
-
-- IAM-based AWS access
-
-
-
----
-
-
-
-# Technology Stack
-
-
-
-| Layer | Technology |
-
-|---|---|
-
-| Frontend | React |
-
-| Frontend Language | TypeScript |
-
-| Frontend Build Tool | Vite |
-
-| Backend | Node.js |
-
-| Backend Framework | Express.js |
-
-| Backend Language | TypeScript |
-
-| Database | PostgreSQL 17 |
-
-| Authentication | JWT |
-
-| Password Security | Password hashing |
-
-| Web Server | Nginx |
-
-| Containerization | Docker |
-
-| Container Registry | Amazon ECR |
-
-| Cloud Compute | Amazon EC2 |
-
-| Cloud Access | AWS IAM |
-
-| Networking | Docker Network + AWS Security Groups |
-
-| Package Manager | npm |
-
-
-
----
-
-
-
-# System Architecture
-
-
-
-The complete production architecture is:
-
-
-
-```text
-
-                           INTERNET
-
-                              |
-
-                              |
-
-                              v
-
-                  +-----------------------+
-
-                  |       AWS EC2         |
-
-                  |                       |
-
-                  |   Security Group     |
-
-                  |                       |
-
-                  |   Port 80  -> HTTP    |
-
-                  |   Port 4000 -> API    |
-
-                  |   Port 22 -> SSH      |
-
-                  |                       |
-
-                  +-----------+-----------+
-
-                              |
-
-             +----------------+----------------+
-
-             |                                 |
-
-             v                                 v
-
-   +-------------------+             +-------------------+
-
-   | Frontend Container|             | Backend Container |
-
-   |                   |             |                   |
-
-   | React Application  |             | Node.js +        |
-
-   |        +           |             | Express + TS     |
-
-   |      Nginx         |             |                   |
-
-   |                   |             | Port 4000        |
-
-   | Port 80            |             +---------+---------+
-
-   +-------------------+                       |
-
-                                               |
-
-                                               v
-
-                                    +----------------------+
-
-                                    | PostgreSQL Container |
-
-                                    |                      |
-
-                                    | PostgreSQL 17        |
-
-                                    | Port 5432            |
-
-                                    +----------------------+
-
-```
-
-
-
-The frontend and backend run as separate Docker containers.
-
-
-
-The backend communicates with PostgreSQL through a Docker network.
-
-
-
-PostgreSQL is not directly exposed to the public internet.
-
-
-
----
-
-
-
-# Application Architecture
-
-
-
-CloudTask follows a layered application structure.
-
-
-
-```text
-
-                    React Frontend
-
-                          |
-
-                          | HTTP / REST API
-
-                          v
-
-                   Express Backend
-
-                          |
-
-             +------------+-------------+
-
-             |            |             |
-
-             v            v             v
-
-        Middleware    Controllers    Routes
-
-                          |
-
-                          v
-
-                       Services
-
-                          |
-
-                          v
-
-                     Repositories
-
-                          |
-
-                          v
-
-                      PostgreSQL
-
-```
-
-
-
-The main backend layers are:
-
-
-
-```text
-
-Routes
-
-  |
-
-  v
-
-Controllers
-
-  |
-
-  v
-
-Services
-
-  |
-
-  v
-
-Repositories
-
-  |
-
-  v
-
-Database
-
-```
-
-
-
-This separation keeps HTTP handling, business logic, and database operations organized independently.
-
-
-
----
-
-
-
-# Frontend Architecture
-
-
-
-The frontend is built using React and TypeScript.
-
-
-
-The main responsibilities of the frontend are:
-
-
-
-- Rendering the user interface
-
-- Managing authentication state
-
-- Calling backend APIs
-
-- Displaying tasks
-
-- Creating tasks
-
-- Editing tasks
-
-- Deleting tasks
-
-- Protecting authenticated pages
-
-
-
-## Frontend Flow
-
-
-
-```text
-
-User
-
- |
-
- v
-
-React UI
-
- |
-
- v
-
-API Client
-
- |
-
- v
-
-REST API
-
- |
-
- v
-
-Node.js Backend
-
- |
-
- v
-
-PostgreSQL
-
-```
-
-
-
-## Main Frontend Areas
-
-
-
-```text
-
-src/
-
-├── api/
-
-├── components/
-
-├── context/
-
-├── features/
-
-├── pages/
-
-└── types/
-
-```
-
-
-
-### Components
-
-
-
-Reusable UI components include:
-
-
-
-- Navbar
-
-- TaskCard
-
-- TaskForm
-
-- Modal
-
-- LoadingSpinner
-
-- ProtectedRoute
-
-
-
-### Pages
-
-
-
-The application includes:
-
-
-
-- Login page
-
-- Registration page
-
-- Dashboard page
-
-- Not Found page
-
-
-
-### Authentication Context
-
-
-
-The authentication context manages the frontend authentication state and provides authentication information to protected components.
-
-
-
-### Protected Routes
-
-
-
-The dashboard is protected so that unauthenticated users cannot access task management functionality.
-
-
-
----
-
-
-
-# Backend Architecture
-
-
-
-The backend is a TypeScript-based Node.js application using Express.
-
-
-
-The backend is responsible for:
-
-
-
-- Authentication
-
-- User management
-
-- Task management
-
-- Database access
-
-- JWT validation
-
-- Request processing
-
+- Reusable components
+- Task management UI
+- Loading states
 - Error handling
 
-- Health monitoring
-
-
-
-## Backend Structure
-
-
-
-```text
-
-cloudtask-backend/
-
-│
-
-├── src/
-
-│   ├── config/
-
-│   │   ├── db.ts
-
-│   │   └── env.ts
-
-│   │
-
-│   ├── db/
-
-│   │   ├── migrate.ts
-
-│   │   └── migrations/
-
-│   │       ├── 001_create_users.sql
-
-│   │       └── 002_create_tasks.sql
-
-│   │
-
-│   ├── middleware/
-
-│   │   ├── auth.middleware.ts
-
-│   │   └── error.middleware.ts
-
-│   │
-
-│   ├── modules/
-
-│   │   ├── auth/
-
-│   │   │   ├── auth.controller.ts
-
-│   │   │   ├── auth.repository.ts
-
-│   │   │   ├── auth.routes.ts
-
-│   │   │   └── auth.service.ts
-
-│   │   │
-
-│   │   └── tasks/
-
-│   │       ├── tasks.controller.ts
-
-│   │       ├── tasks.repository.ts
-
-│   │       ├── tasks.routes.ts
-
-│   │       └── tasks.service.ts
-
-│   │
-
-│   ├── app.ts
-
-│   └── server.ts
-
-│
-
-├── Dockerfile
-
-├── package.json
-
-└── tsconfig.json
-
-```
-
-
-
----
-
-
-
-# Backend Request Flow
-
-
-
-A typical authenticated task request follows this flow:
-
-
-
-```text
-
-Frontend
-
-   |
-
-   | HTTP Request + JWT
-
-   v
-
-Express Router
-
-   |
-
-   v
-
-Authentication Middleware
-
-   |
-
-   | Token valid?
-
-   |
-
-   +---- NO ----> Unauthorized Response
-
-   |
-
-   +---- YES
-
-          |
-
-          v
-
-      Controller
-
-          |
-
-          v
-
-       Service
-
-          |
-
-          v
-
-     Repository
-
-          |
-
-          v
-
-      PostgreSQL
-
-          |
-
-          v
-
-       Response
-
-          |
-
-          v
-
-       Frontend
-
-```
-
-
-
-This ensures protected resources are only accessible to authenticated users.
-
-
-
----
-
-
-
-# Database Architecture
-
-
-
-CloudTask uses **PostgreSQL 17** as its relational database.
-
-
-
-The database runs inside its own Docker container in production.
-
-
-
-```text
-
-+----------------------+
-
-| Node.js Backend      |
-
-| cloudtask-backend    |
-
-+----------+-----------+
-
-           |
-
-           | PostgreSQL connection
-
-           |
-
-           v
-
-+----------------------+
-
-| PostgreSQL           |
-
-| cloudtask-db         |
-
-|                      |
-
-| Port: 5432           |
-
-+----------------------+
-
-```
-
-
-
-The PostgreSQL container is connected to the same Docker network as the backend.
-
-
-
-The database is not published directly to the public internet.
-
-
-
----
-
-
-
-# Database Schema
-
-
-
-CloudTask currently uses tables for:
-
-
-
-## Users
-
-
-
-The users table stores registered application users.
-
-
-
-Conceptually:
-
-
-
-```text
-
-users
-
---------------------------------
-
-id
-
-email
-
-password
-
-created_at
-
-```
-
-
-
-## Tasks
-
-
-
-The tasks table stores tasks belonging to users.
-
-
-
-Conceptually:
-
-
-
-```text
-
-tasks
-
---------------------------------
-
-id
-
-user_id
-
-title
-
-description
-
-completed
-
-created_at
-
-updated_at
-
-```
-
-
-
-The task record is associated with its owning user through `user_id`.
-
-
-
-This allows the application to enforce user-specific task access.
-
-
-
----
-
-
-
-# Database Migrations
-
-
-
-CloudTask includes a lightweight custom migration runner.
-
-
-
-Migration files are stored in:
-
-
-
-```text
-
-cloudtask-backend/src/db/migrations/
-
-```
-
-
-
-Current migrations:
-
-
-
-```text
-
-001_create_users.sql
-
-002_create_tasks.sql
-
-```
-
-
-
-The migration runner is located at:
-
-
-
-```text
-
-cloudtask-backend/src/db/migrate.ts
-
-```
-
-
-
-## Migration Process
-
-
-
-When migrations run:
-
-
-
-```text
-
-Migration Runner
-
-       |
-
-       v
-
-Create migrations table
-
-       |
-
-       v
-
-Read migration files
-
-       |
-
-       v
-
-Sort migration filenames
-
-       |
-
-       v
-
-Check already-applied migrations
-
-       |
-
-       v
-
-Run pending migration
-
-       |
-
-       v
-
-Record migration
-
-```
-
-
-
-The migration runner tracks applied migrations using a dedicated `migrations` table.
-
-
-
-Each migration is executed inside a database transaction.
-
-
-
-```text
-
-BEGIN
-
-   |
-
-   v
-
-Execute SQL
-
-   |
-
-   +---- Success ----> Record migration -> COMMIT
-
-   |
-
-   +---- Failure ----> ROLLBACK
-
-```
-
-
-
-This prevents a failed migration from being partially applied.
-
-
-
----
-
-
-
-# Authentication
-
-
-
-CloudTask uses **JWT-based authentication**.
-
-
-
-The authentication system consists of:
-
-
-
-- Registration
-
-- Login
-
-- Password hashing
-
-- JWT generation
-
-- JWT verification
-
-- Authentication middleware
-
-- Protected task routes
-
-
-
----
-
-
-
-# Registration Flow
-
-
-
-```text
-
-User
-
- |
-
- | Email + Password
-
- v
-
-POST /api/auth/register
-
- |
-
- v
-
-Auth Controller
-
- |
-
- v
-
-Auth Service
-
- |
-
- | Hash password
-
- v
-
-Auth Repository
-
- |
-
- v
-
-PostgreSQL
-
- |
-
- v
-
-User created
-
-```
-
-
-
-Passwords are not stored as plain text.
-
-
-
-A password hash is stored in the database instead.
-
-
-
----
-
-
-
-# Login Flow
-
-
-
-```text
-
-User
-
- |
-
- | Email + Password
-
- v
-
-POST /api/auth/login
-
- |
-
- v
-
-Auth Controller
-
- |
-
- v
-
-Auth Service
-
- |
-
- | Find user
-
- v
-
-PostgreSQL
-
- |
-
- | Verify password
-
- v
-
-Generate JWT
-
- |
-
- v
-
-Return authentication response
-
- |
-
- v
-
-Frontend
-
-```
-
-
-
----
-
-
-
-# Authenticated Request
-
-
-
-After login, authenticated API requests include the JWT.
-
-
-
-```text
-
-Frontend
-
-   |
-
-   | Authorization: Bearer <JWT>
-
-   v
-
-Express API
-
-   |
-
-   v
-
-Auth Middleware
-
-   |
-
-   | Verify JWT
-
-   |
-
-   +---- Invalid ----> 401 Unauthorized
-
-   |
-
-   +---- Valid
-
-          |
-
-          v
-
-       Controller
-
-          |
-
-          v
-
-       Service
-
-          |
-
-          v
-
-      Repository
-
-          |
-
-          v
-
-      PostgreSQL
-
-```
-
-
-
----
-
-
-
-# API
-
-
-
-The backend exposes a REST API.
-
-
-
-Base URL in production:
-
-
-
-```text
-
-http://3.110.37.65:4000
-
-```
-
-
-
-The frontend accesses the backend API from the deployed application.
-
-
-
----
-
-
-
-# Authentication API
-
-
-
-## Register
-
-
-
-```http
-
-POST /api/auth/register
-
-```
-
-
-
-Used to create a new user account.
-
-
-
----
-
-
-
-## Login
-
-
-
-```http
-
-POST /api/auth/login
-
-```
-
-
-
-Used to authenticate an existing user.
-
-
-
----
-
-
-
-# Task API
-
-
-
-Task endpoints are protected by JWT authentication.
-
-
-
-## Get Tasks
-
-
-
-```http
-
-GET /api/tasks
-
-```
-
-
-
-Returns the authenticated user's tasks.
-
-
-
----
-
-
-
-## Create Task
-
-
-
-```http
-
-POST /api/tasks
-
-```
-
-
-
-Creates a new task for the authenticated user.
-
-
-
----
-
-
-
-## Update Task
-
-
-
-```http
-
-PUT /api/tasks/:id
-
-```
-
-
-
-Updates an existing task.
-
-
-
----
-
-
-
-## Delete Task
-
-
-
-```http
-
-DELETE /api/tasks/:id
-
-```
-
-
-
-Deletes an existing task.
-
-
-
----
-
-
-
-# Health API
-
-
-
-CloudTask provides a health endpoint for checking whether the backend API is running.
-
-
-
-```http
-
-GET /api/health
-
-```
-
-
-
-Example:
-
-
-
-```bash
-
-curl http://localhost:4000/api/health
-
-```
-
-
-
-Expected response:
-
-
-
-```json
-
-{
-
-  "success": true,
-
-  "message": "CloudTask API is running"
-
-}
-
-```
-
-
-
-The deployed API was also verified externally using:
-
-
-
-```bash
-
-curl http://3.110.37.65:4000/api/health
-
-```
-
-
-
-Expected result:
-
-
-
-```json
-
-{
-
-  "success": true,
-
-  "message": "CloudTask API is running"
-
-}
-
-```
-
-
-
----
-
-
-
-# Docker Architecture
-
-
-
-CloudTask uses separate Docker containers for each major service.
-
-
-
-```text
-
-Docker Network: cloudtask-network
-
-
-
-+-----------------------+
-
-| cloudtask-frontend    |
-
-| Nginx + React         |
-
-| Port 80               |
-
-+-----------+-----------+
-
-            |
-
-            |
-
-+-----------v-----------+
-
-| cloudtask-backend     |
-
-| Node.js + Express     |
-
-| Port 4000             |
-
-+-----------+-----------+
-
-            |
-
-            |
-
-+-----------v-----------+
-
-| cloudtask-db          |
-
-| PostgreSQL 17         |
-
-| Port 5432             |
-
-+-----------------------+
-
-```
-
-
-
-The backend connects to PostgreSQL using the Docker service/container name rather than the public IP.
-
-
-
-Example:
-
-
-
-```text
-
-postgresql://postgres:postgres@cloudtask-db:5432/cloudtask
-
-```
-
-
-
-This allows containers to communicate internally through the Docker network.
-
-
-
----
-
-
-
-# Docker Images
-
-
-
-The production deployment uses:
-
-
-
-```text
-
-cloudtask-backend
-
-cloudtask-frontend
-
-postgres:17
-
-```
-
-
-
-Application images are stored in Amazon ECR.
-
-
-
----
-
-
-
-# AWS Deployment Architecture
-
-
-
-CloudTask is deployed to an AWS EC2 instance.
-
-
-
-The deployment uses:
-
-
-
-```text
-
-Local Machine
-
-      |
-
-      | Docker Build
-
-      v
-
-Docker Images
-
-      |
-
-      | docker push
-
-      v
-
-Amazon ECR
-
-      |
-
-      | docker pull
-
-      v
-
-AWS EC2
-
-      |
-
-      v
-
-Docker Containers
-
-```
-
-
-
----
-
-
-
-# Amazon ECR
-
-
-
-Two private ECR repositories are used:
-
-
-
-```text
-
-cloudtask-backend
-
-cloudtask-frontend
-
-```
-
-
-
-The application images are pushed from the development machine to Amazon ECR.
-
-
-
-Example backend image:
-
-
-
-```text
-
-<account-id>.dkr.ecr.ap-south-1.amazonaws.com/cloudtask-backend:latest
-
-```
-
-
-
-Example frontend image:
-
-
-
-```text
-
-<account-id>.dkr.ecr.ap-south-1.amazonaws.com/cloudtask-frontend:latest
-
-```
-
-
-
-The EC2 instance authenticates with ECR and pulls the required images.
-
-
-
----
-
-
-
-# EC2 Deployment
-
-
-
-The production application runs on an Amazon EC2 instance.
-
-
-
-The deployed containers are:
-
-
-
-```text
-
-cloudtask-frontend
-
-cloudtask-backend
-
-cloudtask-db
-
-```
-
-
-
-Container status can be checked with:
-
-
-
-```bash
-
-docker ps
-
-```
-
-
-
-Example deployment:
-
-
-
-```text
-
-cloudtask-frontend
-
-    0.0.0.0:80->80/tcp
-
-
-
-cloudtask-backend
-
-    0.0.0.0:4000->4000/tcp
-
-
-
-cloudtask-db
-
-    5432/tcp
-
-```
-
-
-
----
-
-
-
-# Nginx
-
-
-
-The frontend production container uses Nginx.
-
-
-
-Nginx serves the built React application.
-
-
-
-```text
-
-Browser
-
-   |
-
-   | HTTP :80
-
-   v
-
-Nginx
-
-   |
-
-   v
-
-React Static Files
-
-```
-
-
-
-The backend runs separately on port `4000`.
-
-
-
----
-
-
-
-# AWS Networking
-
-
-
-The EC2 instance uses an AWS Security Group to control inbound traffic.
-
-
-
-Current application access includes:
-
-
-
-```text
-
-HTTP
-
-Port: 80
-
-Source: 0.0.0.0/0
-
-```
-
-
-
-Backend API testing:
-
-
-
-```text
-
-TCP
-
-Port: 4000
-
-```
-
-
-
-SSH access:
-
-
-
-```text
-
-TCP
-
-Port: 22
-
-```
-
-
-
-SSH access is restricted to the configured development IP.
-
-
-
-PostgreSQL is not exposed publicly and is accessible through the Docker network.
-
-
-
----
-
-
-
-# AWS IAM
-
-
-
-AWS IAM is used to control access to AWS resources.
-
-
-
-An IAM developer user was used for AWS CLI operations such as interacting with Amazon ECR.
-
-
-
-The EC2 deployment does not require exposing AWS access keys inside the application containers.
-
-
-
-AWS credentials are not committed to this repository.
-
-
-
----
-
-
-
-# Local Development
-
-
-
-## Prerequisites
-
-
-
-Install:
-
-
-
-- Node.js
-
-- npm
-
-- PostgreSQL
+### Deployment
 
 - Docker
-
-
-
----
-
-
-
-# Backend Local Setup
-
-
-
-Navigate to the backend:
-
-
-
-```bash
-
-cd cloudtask-backend
-
-```
-
-
-
-Install dependencies:
-
-
-
-```bash
-
-npm install
-
-```
-
-
-
-Create a local environment file from:
-
-
-
-```text
-
-.env.example
-
-```
-
-
-
-Example configuration:
-
-
-
-```env
-
-PORT=4000
-
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cloudtask
-
-JWT_SECRET=your-secret
-
-JWT_EXPIRES_IN=1h
-
-```
-
-
-
-Build the backend:
-
-
-
-```bash
-
-npm run build
-
-```
-
-
-
-Run the configured backend development/production script from `package.json`.
-
-
+- Nginx
+- Amazon ECR
+- Amazon EC2
+- PostgreSQL container
+- Dockerized frontend and backend
 
 ---
 
+# 🛠️ Technology Stack
 
-
-# Frontend Local Setup
-
-
-
-Navigate to the frontend:
-
-
-
-```bash
-
-cd cloudtask-frontend
-
-```
-
-
-
-Install dependencies:
-
-
-
-```bash
-
-npm install
-
-```
-
-
-
-Create the local environment file using:
-
-
-
-```text
-
-.env.example
-
-```
-
-
-
-Then run the configured Vite development script.
-
-
+| Layer | Technology |
+|---|---|
+| Frontend | React |
+| Frontend Language | TypeScript |
+| Frontend Build Tool | Vite |
+| Backend | Node.js |
+| Backend Framework | Express.js |
+| Backend Language | TypeScript |
+| Database | PostgreSQL 17 |
+| Authentication | JWT |
+| Password Security | bcrypt |
+| Web Server | Nginx |
+| Containerization | Docker |
+| Container Registry | Amazon ECR |
+| Cloud Platform | AWS EC2 |
+| Database Driver | PostgreSQL / pg |
+| Package Manager | npm |
 
 ---
 
+# 🏗️ System Architecture
 
+```mermaid
+flowchart TB
 
-# Running with Docker
+    USER["👤 User / Browser"]
 
+    subgraph AWS["☁️ AWS Cloud"]
 
+        ECR["📦 Amazon ECR<br/>Docker Image Registry"]
 
-## Backend
+        subgraph EC2["🖥️ Amazon EC2"]
 
+            NGINX["🌐 Nginx<br/>Frontend Container<br/>Port 80"]
 
+            API["⚙️ Node.js + Express<br/>Backend Container<br/>Port 4000"]
 
-From:
+            DB["🗄️ PostgreSQL 17<br/>Database Container"]
 
+            NGINX -->|"REST API"| API
+            API -->|"SQL"| DB
 
+        end
+
+        ECR -.->|"Pull Docker Images"| EC2
+
+    end
+
+    USER -->|"HTTP :80"| NGINX
+```
+
+### Architecture Flow
 
 ```text
-
-cloudtask-backend/
-
+                         ☁️ AWS CLOUD
+                              │
+              ┌───────────────┴───────────────┐
+              │                               │
+        📦 Amazon ECR                    🖥️ Amazon EC2
+        Docker Images                         │
+              │                               │
+              │ Pull Images                  │
+              └──────────────────────►       │
+                                              │
+                                  ┌───────────┴───────────┐
+                                  │                       │
+                            🌐 Frontend              ⚙️ Backend
+                              Nginx                  Express API
+                              :80                      :4000
+                                                          │
+                                                          │ SQL
+                                                          ▼
+                                                   🗄️ PostgreSQL
+                                                      :5432
 ```
 
+The user accesses the application through the Nginx frontend container. Nginx serves the React application and forwards API requests to the Node.js/Express backend. The backend communicates with PostgreSQL for persistent data storage.
 
-
-build the image:
-
-
-
-```bash
-
-docker build -t cloudtask-backend:latest .
-
-```
-
-
+Amazon ECR acts as the container image registry, while the EC2 instance runs the application containers.
 
 ---
 
+# 🖥️ Frontend Architecture
 
-
-## Frontend
-
-
-
-From:
-
-
+The frontend is built using React and TypeScript with a component-based architecture.
 
 ```text
-
 cloudtask-frontend/
-
+│
+├── src/
+│   ├── api/
+│   │   └── client.ts
+│   │
+│   ├── components/
+│   │   ├── LoadingSpinner.tsx
+│   │   ├── Modal.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── ProtectedRoute.tsx
+│   │   ├── TaskCard.tsx
+│   │   └── TaskForm.tsx
+│   │
+│   ├── context/
+│   │   └── AuthContext.tsx
+│   │
+│   ├── features/
+│   │   ├── auth/
+│   │   │   └── authApi.ts
+│   │   │
+│   │   └── tasks/
+│   │       ├── tasksApi.ts
+│   │       └── useTasks.ts
+│   │
+│   ├── pages/
+│   │   ├── DashboardPage.tsx
+│   │   ├── LoginPage.tsx
+│   │   ├── RegisterPage.tsx
+│   │   └── NotFoundPage.tsx
+│   │
+│   ├── types/
+│   │   └── index.ts
+│   │
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+│
+├── public/
+├── Dockerfile
+├── nginx.conf
+├── package.json
+└── vite.config.ts
 ```
 
-
-
-build the image:
-
-
-
-```bash
-
-docker build -t cloudtask-frontend:latest .
-
-```
-
-
-
----
-
-
-
-# Docker Network
-
-
-
-Create a Docker network:
-
-
-
-```bash
-
-docker network create cloudtask-network
-
-```
-
-
-
-Run PostgreSQL:
-
-
-
-```bash
-
-docker run -d \
-
-  --name cloudtask-db \
-
-  --network cloudtask-network \
-
-  -e POSTGRES_PASSWORD=postgres \
-
-  -e POSTGRES_DB=cloudtask \
-
-  postgres:17
-
-```
-
-
-
-The backend can then connect to:
-
-
+### Frontend Flow
 
 ```text
-
-cloudtask-db:5432
-
+User
+  │
+  ▼
+React Page
+  │
+  ▼
+Component
+  │
+  ▼
+API Hook / Feature API
+  │
+  ▼
+HTTP Client
+  │
+  ▼
+Backend REST API
 ```
-
-
-
-rather than using localhost.
-
-
 
 ---
 
+# ⚙️ Backend Architecture
 
+The backend follows a modular structure separating routes, controllers, services, repositories, middleware, configuration, and database logic.
 
-# Environment Variables
-
-
-
-Backend environment variables:
-
-
-
-```env
-
-PORT=4000
-
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cloudtask
-
-JWT_SECRET=replace-this-with-a-long-random-string
-
-JWT_EXPIRES_IN=1h
-
+```text
+cloudtask-backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   ├── db.ts
+│   │   └── env.ts
+│   │
+│   ├── db/
+│   │   ├── migrate.ts
+│   │   └── migrations/
+│   │       ├── 001_create_users.sql
+│   │       └── 002_create_tasks.sql
+│   │
+│   ├── middleware/
+│   │   ├── auth.middleware.ts
+│   │   └── error.middleware.ts
+│   │
+│   ├── modules/
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── auth.controller.ts
+│   │   │   ├── auth.repository.ts
+│   │   │   ├── auth.routes.ts
+│   │   │   └── auth.service.ts
+│   │   │
+│   │   └── tasks/
+│   │       ├── tasks.controller.ts
+│   │       ├── tasks.repository.ts
+│   │       ├── tasks.routes.ts
+│   │       └── tasks.service.ts
+│   │
+│   ├── app.ts
+│   └── server.ts
+│
+├── Dockerfile
+├── package.json
+└── tsconfig.json
 ```
-
-
-
-Production environment variables are configured separately from source control.
-
-
-
-Sensitive `.env` files are intentionally excluded from Git.
-
-
 
 ---
 
+# 🔌 Backend Request Architecture
 
-
-# Testing
-
-
-
-The deployed application was manually tested after deployment.
-
-
-
-## Authentication Tests
-
-
-
-- Register new user
-
-- Login
-
-- Logout
-
-- Login again
-
-- Access protected dashboard
-
-
-
-## Task Tests
-
-
-
-- Create task
-
-- View task
-
-- Edit task
-
-- Delete task
-
-- Refresh dashboard and verify persistence
-
-
-
-## API Tests
-
-
-
-Health endpoint:
-
-
-
-```bash
-
-curl http://3.110.37.65:4000/api/health
-
+```text
+HTTP Request
+     │
+     ▼
+   Route
+     │
+     ▼
+ Controller
+     │
+     ▼
+  Service
+     │
+     ▼
+Repository
+     │
+     ▼
+PostgreSQL
+     │
+     ▼
+Repository
+     │
+     ▼
+  Service
+     │
+     ▼
+ Controller
+     │
+     ▼
+ JSON Response
 ```
 
+### Responsibilities
 
+| Layer | Responsibility |
+|---|---|
+| Routes | Define API endpoints |
+| Controllers | Handle HTTP requests/responses |
+| Services | Application/business logic |
+| Repositories | Database access |
+| Middleware | Authentication and error handling |
+| Config | Environment and database configuration |
+| Migrations | Database schema creation |
 
-Expected:
+---
 
+# 🗄️ Database Architecture
 
+CloudTask uses PostgreSQL 17 as its relational database.
+
+The database is also containerized using Docker.
+
+```mermaid
+erDiagram
+
+    USERS ||--o{ TASKS : owns
+
+    USERS {
+        uuid id PK
+        varchar email UK
+        varchar password
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    TASKS {
+        uuid id PK
+        uuid user_id FK
+        varchar title
+        text description
+        varchar status
+        timestamp created_at
+        timestamp updated_at
+    }
+```
+
+### Relationship
+
+```text
+Users
+  │
+  │ 1
+  │
+  │ owns
+  │
+  │ N
+  ▼
+Tasks
+```
+
+Each task belongs to a specific authenticated user.
+
+This allows the backend to restrict task operations to the owner of the task.
+
+---
+
+# 🔐 Authentication
+
+CloudTask uses JWT-based authentication.
+
+## Authentication Flow
+
+```mermaid
+flowchart TD
+
+    R["Register"]
+    L["Login"]
+    B["Password Hashing"]
+    DB["PostgreSQL"]
+    JWT["JWT Token"]
+    STORE["Frontend Auth State"]
+    API["Protected API"]
+    MW["Auth Middleware"]
+
+    R --> B
+    B --> DB
+
+    L --> DB
+    DB --> JWT
+    JWT --> STORE
+
+    STORE --> API
+    API --> MW
+    MW --> DB
+```
+
+### Registration
+
+```text
+User
+  │
+  ▼
+Register Form
+  │
+  ▼
+POST /api/auth/register
+  │
+  ▼
+Validate Input
+  │
+  ▼
+Hash Password
+  │
+  ▼
+Create User
+  │
+  ▼
+PostgreSQL
+```
+
+### Login
+
+```text
+User
+  │
+  ▼
+Login Form
+  │
+  ▼
+POST /api/auth/login
+  │
+  ▼
+Find User
+  │
+  ▼
+Compare Password
+  │
+  ▼
+Generate JWT
+  │
+  ▼
+Return Token
+  │
+  ▼
+Frontend
+```
+
+### Protected Request
+
+```text
+Frontend
+   │
+   │ Authorization: Bearer <JWT>
+   ▼
+Express API
+   │
+   ▼
+Authentication Middleware
+   │
+   ├── Invalid → 401 Unauthorized
+   │
+   └── Valid
+        │
+        ▼
+     Controller
+        │
+        ▼
+      Service
+        │
+        ▼
+    Repository
+        │
+        ▼
+    PostgreSQL
+```
+
+---
+
+# 🔒 Authorization
+
+Authentication and authorization are handled separately.
+
+### Authentication
+
+Determines:
+
+> "Who is this user?"
+
+JWT is used to identify the authenticated user.
+
+### Authorization
+
+Determines:
+
+> "Is this user allowed to access this resource?"
+
+Task operations are associated with the authenticated user's ID.
+
+Therefore a user cannot manage another user's tasks through the protected API.
+
+---
+
+# ❤️ Health API
+
+The backend exposes a health endpoint:
+
+```http
+GET /api/health
+```
+
+Successful response:
 
 ```json
-
 {
-
   "success": true,
-
   "message": "CloudTask API is running"
-
 }
-
 ```
 
+This endpoint was verified against the deployed EC2 backend.
 
-
-## Container Tests
-
-
-
-Production container status was verified using:
-
-
+Example:
 
 ```bash
-
-docker ps
-
+curl http://3.110.37.65:4000/api/health
 ```
-
-
-
-Expected services:
-
-
-
-```text
-
-cloudtask-frontend
-
-cloudtask-backend
-
-cloudtask-db
-
-```
-
-
-
-Backend logs were also verified to confirm:
-
-
-
-```text
-
-Connected to PostgreSQL successfully.
-
-CloudTask API listening on 0.0.0.0:4000
-
-```
-
-
-
-Frontend Nginx logs were verified to confirm:
-
-
-
-```text
-
-Configuration complete; ready for start up
-
-start worker processes
-
-```
-
-
 
 ---
 
+# 🔌 REST API
 
+## Health
 
-# Production Verification
-
-
-
-The following production checks were performed:
-
-
-
-```text
-
-✓ EC2 instance running
-
-✓ Docker installed
-
-✓ AWS CLI configured
-
-✓ ECR authentication successful
-
-✓ Backend image pushed to ECR
-
-✓ Frontend image pushed to ECR
-
-✓ Backend image pulled on EC2
-
-✓ Frontend image pulled on EC2
-
-✓ PostgreSQL container running
-
-✓ Database migrations applied
-
-✓ Backend container running
-
-✓ Backend health endpoint working
-
-✓ Frontend container running
-
-✓ Nginx serving frontend
-
-✓ Public frontend accessible
-
-✓ Registration tested
-
-✓ Login tested
-
-✓ Logout tested
-
-✓ Task creation tested
-
-✓ Task editing tested
-
-✓ Task deletion tested
-
-✓ Refresh persistence tested
-
-```
-
-
-
----
-
-
-
-# Project Structure
-
-
-
-```text
-
-CloudTask/
-
-│
-
-├── cloudtask-backend/
-
-│   │
-
-│   ├── src/
-
-│   │   ├── config/
-
-│   │   │   ├── db.ts
-
-│   │   │   └── env.ts
-
-│   │   │
-
-│   │   ├── db/
-
-│   │   │   ├── migrate.ts
-
-│   │   │   └── migrations/
-
-│   │   │       ├── 001_create_users.sql
-
-│   │   │       └── 002_create_tasks.sql
-
-│   │   │
-
-│   │   ├── middleware/
-
-│   │   │   ├── auth.middleware.ts
-
-│   │   │   └── error.middleware.ts
-
-│   │   │
-
-│   │   ├── modules/
-
-│   │   │   ├── auth/
-
-│   │   │   │   ├── auth.controller.ts
-
-│   │   │   │   ├── auth.repository.ts
-
-│   │   │   │   ├── auth.routes.ts
-
-│   │   │   │   └── auth.service.ts
-
-│   │   │   │
-
-│   │   │   └── tasks/
-
-│   │   │       ├── tasks.controller.ts
-
-│   │   │       ├── tasks.repository.ts
-
-│   │   │       ├── tasks.routes.ts
-
-│   │   │       └── tasks.service.ts
-
-│   │   │
-
-│   │   ├── app.ts
-
-│   │   └── server.ts
-
-│   │
-
-│   ├── Dockerfile
-
-│   ├── package.json
-
-│   ├── README.md
-
-│   └── tsconfig.json
-
-│
-
-├── cloudtask-frontend/
-
-│   │
-
-│   ├── src/
-
-│   │   ├── api/
-
-│   │   ├── components/
-
-│   │   ├── context/
-
-│   │   ├── features/
-
-│   │   ├── pages/
-
-│   │   ├── types/
-
-│   │   ├── App.tsx
-
-│   │   └── main.tsx
-
-│   │
-
-│   ├── Dockerfile
-
-│   ├── nginx.conf
-
-│   ├── package.json
-
-│   ├── README.md
-
-│   └── vite.config.ts
-
-│
-
-├── .gitignore
-
-└── README.md
-
-```
-
-
-
----
-
-
-
-# Security
-
-
-
-The project follows several basic security practices.
-
-
-
-## Secrets
-
-
-
-Sensitive files are excluded from version control:
-
-
-
-```text
-
-.env
-
-*.pem
-
-*.csv
-
-```
-
-
-
-AWS credentials and private keys are never stored in the repository.
-
-
+| Method | Endpoint | Authentication |
+|---|---|---|
+| GET | `/api/health` | No |
 
 ## Authentication
 
+| Method | Endpoint | Authentication |
+|---|---|---|
+| POST | `/api/auth/register` | No |
+| POST | `/api/auth/login` | No |
 
+## Tasks
 
-Protected endpoints require JWT authentication.
-
-
-
-## Passwords
-
-
-
-Passwords are stored using password hashing rather than plain text.
-
-
-
-## Database
-
-
-
-PostgreSQL is kept inside the private Docker network and is not directly exposed to the public internet.
-
-
-
-## AWS Security Group
-
-
-
-SSH access is restricted to the configured development IP.
-
-
-
-HTTP traffic is publicly accessible for the web application.
-
-
+| Method | Endpoint | Authentication |
+|---|---|---|
+| GET | `/api/tasks` | JWT |
+| POST | `/api/tasks` | JWT |
+| PUT | `/api/tasks/:id` | JWT |
+| DELETE | `/api/tasks/:id` | JWT |
 
 ---
 
+# 🧪 Application Verification
 
+The deployed application was manually tested after deployment.
 
-# Deployment Flow
+### Authentication
 
+- [x] User registration
+- [x] User login
+- [x] Logout
+- [x] Login after logout
+- [x] Protected dashboard access
 
+### Dashboard
 
-The complete deployment process is:
+- [x] Dashboard loads
+- [x] Create task
+- [x] View task
+- [x] Edit task
+- [x] Delete task
+- [x] Refresh dashboard
+- [x] Verify task persistence
 
+### Backend
 
+- [x] Backend container running
+- [x] Backend health endpoint verified
+- [x] Backend API accessible from the internet
+- [x] PostgreSQL container running
+- [x] Frontend container running
 
-```text
+### Deployment
 
-                    DEVELOPMENT
+- [x] Docker images built
+- [x] Images pushed to Amazon ECR
+- [x] Images pulled from Amazon ECR
+- [x] Frontend deployed on EC2
+- [x] Backend deployed on EC2
+- [x] PostgreSQL deployed as Docker container
 
-                         |
+---
 
-                         v
+# 🐳 Docker Architecture
 
-                React + Node.js
+CloudTask runs as multiple Docker containers.
 
-                         |
+```mermaid
+flowchart LR
 
-                         v
+    USER["Browser"]
 
-                  Docker Build
+    subgraph EC2["AWS EC2 Instance"]
 
-                    /       \
+        FRONT["cloudtask-frontend<br/>Nginx<br/>Port 80"]
 
-                   /         \
+        BACK["cloudtask-backend<br/>Node.js + Express<br/>Port 4000"]
 
-                  v           v
+        POSTGRES["cloudtask-db<br/>PostgreSQL 17<br/>Port 5432"]
 
-             Frontend      Backend
+    end
 
-                Image        Image
-
-                   \\         /
-
-                    \\       /
-
-                     v     v
-
-                   Amazon ECR
-
-                       |
-
-                       |
-
-                       v
-
-                    AWS EC2
-
-                       |
-
-                       v
-
-                Docker Pull
-
-                       |
-
-          +------------+-------------+
-
-          |            |             |
-
-          v            v             v
-
-      Frontend      Backend      PostgreSQL
-
-       Nginx        Node.js       Database
-
-          |            |
-
-          |            |
-
-          +------------+
-
-                |
-
-                v
-
-             Internet
-
+    USER --> FRONT
+    FRONT --> BACK
+    BACK --> POSTGRES
 ```
 
-
-
----
-
-
-
-# Application Request Flow
-
-
-
-A typical user interaction follows:
-
-
+### Running Containers
 
 ```text
-
-Browser
-
-   |
-
-   | HTTP
-
-   v
-
-Nginx / React
-
-   |
-
-   | REST API request
-
-   v
-
-Node.js / Express
-
-   |
-
-   v
-
-JWT Middleware
-
-   |
-
-   v
-
-Controller
-
-   |
-
-   v
-
-Service
-
-   |
-
-   v
-
-Repository
-
-   |
-
-   v
-
-PostgreSQL
-
-   |
-
-   v
-
-Response
-
-   |
-
-   v
-
-React UI
-
+cloudtask-frontend
+        │
+        │ Port 80
+        ▼
+cloudtask-backend
+        │
+        │ Port 4000
+        ▼
+cloudtask-db
+        │
+        │ PostgreSQL 5432
+        ▼
+    Database
 ```
 
-
+PostgreSQL is kept inside the Docker environment rather than exposed directly to the public internet.
 
 ---
 
+# ☁️ AWS Deployment Architecture
 
+```mermaid
+flowchart TB
 
-# Error Handling
+    DEV["Developer"]
 
+    ECR["Amazon ECR"]
 
+    EC2["Amazon EC2"]
 
-The backend includes centralized error handling middleware.
+    F["Frontend Container<br/>Nginx :80"]
+    B["Backend Container<br/>Express :4000"]
+    D["PostgreSQL Container<br/>5432"]
 
+    DEV -->|"Build & Push"| ECR
+    ECR -->|"Pull Images"| EC2
 
+    EC2 --> F
+    EC2 --> B
+    EC2 --> D
 
-The general flow is:
+    F --> B
+    B --> D
+```
 
+---
 
+# 📦 Deployment Flow
 
 ```text
-
-Request
-
-   |
-
-   v
-
-Route
-
-   |
-
-   v
-
-Controller
-
-   |
-
-   v
-
-Service
-
-   |
-
-   +---- Error
-
-          |
-
-          v
-
-    Error Middleware
-
-          |
-
-          v
-
-    HTTP Error Response
-
+Local Development
+       │
+       ▼
+Docker Build
+       │
+       ▼
+Amazon ECR
+       │
+       ▼
+AWS EC2
+       │
+       ▼
+Docker Pull
+       │
+       ▼
+Docker Containers
+       │
+       ├── Frontend
+       ├── Backend
+       └── PostgreSQL
+       │
+       ▼
+Live Application
 ```
-
-
-
-This prevents application errors from being handled inconsistently across individual routes.
-
-
 
 ---
 
+# 🌐 Network Configuration
 
+The EC2 security group allows the required application traffic.
 
-# Design Decisions
+| Port | Protocol | Purpose |
+|---|---|---|
+| 80 | TCP | Frontend / HTTP |
+| 4000 | TCP | Backend API |
+| 22 | TCP | SSH administration |
+| 5432 | TCP | PostgreSQL internal container communication |
 
+The PostgreSQL database is not intended to be publicly exposed.
 
+---
 
-## Separate Frontend and Backend
+# 🐳 Docker Images
 
-
-
-The frontend and backend are maintained as separate applications.
-
-
-
-Benefits:
-
-
-
-- Independent deployment
-
-- Clear separation of responsibilities
-
-- Easier containerization
-
-- Independent scaling possibilities
-
-
-
-## Layered Backend
-
-
-
-The backend separates:
-
-
+Two application images are maintained:
 
 ```text
-
-Routes
-
-Controllers
-
-Services
-
-Repositories
-
+cloudtask-frontend
+cloudtask-backend
 ```
 
-
-
-This keeps API handling separate from business logic and database operations.
-
-
-
-## PostgreSQL
-
-
-
-A relational database was selected because tasks belong to users and require structured relationships and persistent storage.
-
-
-
-## Docker
-
-
-
-Docker provides consistent environments between development and deployment.
-
-
-
-## Amazon ECR
-
-
-
-ECR provides private storage for production Docker images.
-
-
-
-## Amazon EC2
-
-
-
-EC2 provides a straightforward environment for running the containerized application.
-
-
+The images are stored in Amazon ECR and pulled by the EC2 instance during deployment.
 
 ---
 
+# 🏠 Local Development
 
+## Prerequisites
 
-# Future Improvements
+Install:
 
+- Node.js
+- npm
+- PostgreSQL or Docker
+- Git
+- Docker Desktop (recommended)
 
+---
 
-Possible production improvements include:
+# 📥 Clone Repository
 
+```bash
+git clone https://github.com/Aditya0254-singh/CloudTask.git
 
+cd CloudTask
+```
 
-- HTTPS using a domain name and TLS certificate
+---
 
-- AWS Application Load Balancer
+# ▶️ Run Backend Locally
 
-- Automated CI/CD with GitHub Actions
+```bash
+cd cloudtask-backend
+npm install
+```
 
-- Automated database backups
+Create a `.env` file based on:
 
-- Centralized application logging
+```text
+.env.example
+```
 
-- CloudWatch monitoring
+Then run the backend using the project's configured npm scripts.
 
-- Health checks and automated container restart policies
+The backend will expose:
 
+```text
+http://localhost:4000
+```
+
+Health check:
+
+```bash
+curl http://localhost:4000/api/health
+```
+
+Expected response:
+
+```json
+{
+  "success": true,
+  "message": "CloudTask API is running"
+}
+```
+
+---
+
+# ▶️ Run Frontend Locally
+
+Open another terminal:
+
+```bash
+cd cloudtask-frontend
+npm install
+```
+
+Configure the frontend environment using:
+
+```text
+.env.example
+```
+
+Then start the Vite development server using the project's configured npm script.
+
+---
+
+# 🐘 Database Migrations
+
+The backend contains SQL migration files:
+
+```text
+cloudtask-backend/src/db/migrations/
+
+001_create_users.sql
+002_create_tasks.sql
+```
+
+The migration runner is located at:
+
+```text
+cloudtask-backend/src/db/migrate.ts
+```
+
+The migrations establish the core database schema required by CloudTask.
+
+---
+
+# 📁 Complete Project Structure
+
+```text
+CloudTask/
+│
+├── README.md
+├── .gitignore
+│
+├── cloudtask-backend/
+│   │
+│   ├── src/
+│   │   ├── config/
+│   │   │   ├── db.ts
+│   │   │   └── env.ts
+│   │   │
+│   │   ├── db/
+│   │   │   ├── migrate.ts
+│   │   │   └── migrations/
+│   │   │       ├── 001_create_users.sql
+│   │   │       └── 002_create_tasks.sql
+│   │   │
+│   │   ├── middleware/
+│   │   │   ├── auth.middleware.ts
+│   │   │   └── error.middleware.ts
+│   │   │
+│   │   ├── modules/
+│   │   │   ├── auth/
+│   │   │   │   ├── auth.controller.ts
+│   │   │   │   ├── auth.repository.ts
+│   │   │   │   ├── auth.routes.ts
+│   │   │   │   └── auth.service.ts
+│   │   │   │
+│   │   │   └── tasks/
+│   │   │       ├── tasks.controller.ts
+│   │   │       ├── tasks.repository.ts
+│   │   │       ├── tasks.routes.ts
+│   │   │       └── tasks.service.ts
+│   │   │
+│   │   ├── app.ts
+│   │   └── server.ts
+│   │
+│   ├── Dockerfile
+│   ├── package.json
+│   └── tsconfig.json
+│
+└── cloudtask-frontend/
+    │
+    ├── src/
+    │   ├── api/
+    │   │   └── client.ts
+    │   │
+    │   ├── components/
+    │   │   ├── LoadingSpinner.tsx
+    │   │   ├── Modal.tsx
+    │   │   ├── Navbar.tsx
+    │   │   ├── ProtectedRoute.tsx
+    │   │   ├── TaskCard.tsx
+    │   │   └── TaskForm.tsx
+    │   │
+    │   ├── context/
+    │   │   └── AuthContext.tsx
+    │   │
+    │   ├── features/
+    │   │   ├── auth/
+    │   │   │   └── authApi.ts
+    │   │   └── tasks/
+    │   │       ├── tasksApi.ts
+    │   │       └── useTasks.ts
+    │   │
+    │   ├── pages/
+    │   │   ├── DashboardPage.tsx
+    │   │   ├── LoginPage.tsx
+    │   │   ├── RegisterPage.tsx
+    │   │   └── NotFoundPage.tsx
+    │   │
+    │   ├── types/
+    │   │   └── index.ts
+    │   │
+    │   ├── App.tsx
+    │   ├── index.css
+    │   └── main.tsx
+    │
+    ├── Dockerfile
+    ├── nginx.conf
+    ├── package.json
+    └── vite.config.ts
+```
+
+---
+
+# 🔐 Environment Variables
+
+Environment-specific values are intentionally excluded from version control.
+
+The repository contains:
+
+```text
+.env.example
+```
+
+while actual `.env` files are ignored using `.gitignore`.
+
+Never commit:
+
+```text
+.env
+```
+
+or other secrets such as:
+
+```text
+*.pem
+```
+
+---
+
+# 🛡️ Security Considerations
+
+CloudTask implements several basic application security practices:
+
+- JWT-based authentication
+- Password hashing
+- Protected API routes
+- Protected frontend routes
+- User-specific task authorization
+- Environment variables for configuration
+- `.env` excluded from Git
+- Database not intended for public access
+- EC2 security group controls inbound traffic
+
+For a production system, additional hardening would be recommended, including:
+
+- HTTPS/TLS
+- Secure cookie-based token storage
 - Rate limiting
+- Request validation
+- Security headers
+- Centralized logging
+- Secret management
+- Automated backups
+- Monitoring and alerting
 
-- Refresh tokens
+---
 
-- Pagination for task lists
+# 📊 Architecture Summary
 
+| Component | Responsibility |
+|---|---|
+| React | User interface |
+| TypeScript | Static typing |
+| Vite | Frontend development/build |
+| Nginx | Serves frontend |
+| Node.js | Backend runtime |
+| Express | REST API |
+| JWT | Authentication |
+| bcrypt | Password hashing |
+| PostgreSQL | Persistent data |
+| Docker | Containerization |
+| Amazon ECR | Container image registry |
+| Amazon EC2 | Application hosting |
+
+---
+
+# 🎯 Design Goals
+
+CloudTask was designed around several practical full-stack engineering principles:
+
+### Separation of Concerns
+
+Frontend, backend, authentication, database access, and deployment concerns are separated.
+
+### Modular Backend
+
+Authentication and task management are organized into independent modules.
+
+### Reusable Frontend Components
+
+Common UI functionality is extracted into reusable React components.
+
+### Protected Resources
+
+Task resources are associated with authenticated users.
+
+### Containerized Deployment
+
+Application components are packaged into Docker containers for consistent deployment.
+
+### Environment-Based Configuration
+
+Configuration and secrets are separated from application source code.
+
+---
+
+# 🚀 Future Improvements
+
+Potential improvements include:
+
+- HTTPS with a domain name
+- AWS Application Load Balancer
+- AWS RDS PostgreSQL
+- CI/CD using GitHub Actions
+- Automated Docker image builds
+- Automated EC2 deployment
+- Refresh-token authentication
+- Rate limiting
+- API documentation with Swagger/OpenAPI
+- Automated unit and integration tests
+- AWS CloudWatch monitoring
+- Centralized application logging
 - Task filtering and search
-
-- Task due dates and priorities
-
-- Automated unit and integration testing
-
-- Infrastructure as Code using Terraform or AWS CDK
-
-
+- Task priorities
+- Task due dates
+- Task categories
+- Pagination
 
 ---
 
+# 📌 Project Status
 
+**Status: Deployed and Functional**
 
-# Repository
+The current deployed version supports:
 
-
-
-GitHub:
-
-
-
-https://github.com/Aditya0254-singh/CloudTask
-
-
+- User registration
+- User login
+- Logout
+- Protected dashboard
+- Task creation
+- Task editing
+- Task deletion
+- Task persistence
+- REST API
+- PostgreSQL database
+- Docker deployment
+- AWS EC2 hosting
+- Amazon ECR image storage
+- Backend health monitoring
 
 ---
 
-
-
-# Author
-
-
+# 👨‍💻 Author
 
 **Aditya Singh**
 
+GitHub:  
+https://github.com/Aditya0254-singh
 
+LinkedIn:  
+https://www.linkedin.com/in/aditya-singh-baa980257
 
-CloudTask was built as a full-stack project demonstrating:
+---
 
+# ⭐ CloudTask
 
+A practical full-stack application demonstrating:
 
-- React development
+**React + TypeScript + Node.js + Express + PostgreSQL + JWT + Docker + AWS**
 
-- TypeScript
-
-- REST API development
-
-- Node.js and Express
-
-- PostgreSQL
-
-- JWT authentication
-
-- Docker containerization
-
-- Nginx
-
-- Amazon ECR
-
-- Amazon EC2
-
-- AWS IAM
-
-- AWS Security Groups
-
-- Production deployment
-
+Built from development to deployment with a complete frontend, backend, database, authentication system, containerized infrastructure, and cloud deployment.
